@@ -332,8 +332,9 @@
 
     value = e.target.value + digit
     value = value.replace(/\D/g, '')
+    restrictValue = if e.target.getAttribute('data-maxlength') then parseInt e.target.getAttribute('data-maxlength'), 10 else 6
 
-    if value.length > 6
+    if value.length > restrictValue
       e.preventDefault()
 
   restrictCVC = (e) ->
