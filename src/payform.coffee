@@ -332,7 +332,8 @@
 
     value = e.target.value + digit
     value = value.replace(/\D/g, '')
-    restrictValue = if e.target.getAttribute('data-maxlength') then parseInt(e.target.getAttribute('data-maxlength'), 10) else 6
+    maxlength = e.target.getAttribute('data-maxlength')
+    restrictValue = if typeof maxlength == "number" then maxlength else 6
 
     if value.length > restrictValue
       e.preventDefault()
